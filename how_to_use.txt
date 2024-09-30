@@ -1,0 +1,100 @@
+Tutorial: Configurando e Executando a Aplicação Django
+Passo 1: Instalar o Python
+Antes de começar, você precisa instalar o Python em sua máquina.
+
+Acesse o site oficial do Python: https://www.python.org/
+
+Baixe a versão mais recente do Python compatível com o seu sistema operacional (Windows, macOS ou Linux).
+
+Durante a instalação, marque a opção "Add Python to PATH" para que o Python seja acessível via linha de comando.
+
+Para confirmar que o Python foi instalado corretamente, abra o terminal ou prompt de comando e execute o comando: python --version
+
+Isso deve retornar a versão do Python instalada, como Python 3.x.x.
+
+Passo 2: Instalar o Virtualenv (Ambiente Virtual)
+O uso de ambientes virtuais garante que as dependências do projeto não entrem em conflito com outras instalações globais do Python.
+
+Instale o virtualenv rodando o comando abaixo no terminal ou prompt de comando:
+python -m venv "nome de usa env"
+
+Ative o ambiente virtual:
+venv\Scripts\activate (no Windows)
+source venv/bin/activate (no Linux/macOS)
+
+Quando o ambiente virtual estiver ativo, você verá (sua_venv) antes do prompt de comando.
+
+Passo 3: Instalar o Django
+Com o ambiente virtual ativado, agora vamos instalar o Django.
+
+Para instalar a versão mais recente do Django, execute:
+pip install django
+
+Para verificar se a instalação foi bem-sucedida, digite:
+django-admin --version
+
+Isso deve exibir a versão do Django instalada.
+
+Passo 4: Criar o Projeto Django
+Agora que o Django está instalado, vamos criar o projeto e configurar a aplicação de blog.
+
+No diretório blog-django, crie o projeto Django:
+django-admin startproject meu_blog
+cd meu_blog
+
+Agora, você pode iniciar o servidor para verificar se o projeto foi configurado corretamente:
+python manage.py runserver
+
+Acesse o navegador em http://127.0.0.1:8000/. Se tudo estiver certo, você verá a página de boas-vindas do Django.
+
+Passo 5: Criar a Aplicação de Blog
+No Django, um projeto pode conter várias "aplicações". Vamos criar uma aplicação chamada blog.
+
+Dentro da pasta do projeto meu_blog, execute:
+python manage.py startapp blog
+
+Registre a aplicação blog no arquivo settings.py. No arquivo meu_blog/settings.py, encontre a lista INSTALLED_APPS e adicione 'blog',:
+INSTALLED_APPS = [
+    # Aplicações padrão do Django
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    # Aplicação do blog
+    'blog',
+]
+
+Agora você pode começar a desenvolver seu blog dentro da aplicação blog.
+
+Passo 6: Criar o Arquivo requirements.txt
+
+Para facilitar a instalação das dependências em outros ambientes, crie um arquivo requirements.txt. Esse arquivo conterá todas as bibliotecas necessárias para o projeto, incluindo o Django.
+
+No terminal, dentro do ambiente virtual e do diretório do projeto, execute:
+pip freeze > requirements.txt
+Isso gerará o arquivo requirements.txt com todas as dependências do projeto.
+
+O conteúdo do requirements.txt será algo como:
+Django==4.x.x
+
+Passo 7: Como Instalar Dependências Usando o requirements.txt
+Quando você ou outra pessoa precisar instalar as dependências do projeto em outro ambiente, basta ativar o ambiente virtual e usar o comando abaixo:
+
+Com o ambiente virtual ativado, execute:
+
+pip install -r requirements.txt
+
+Isso instalará todas as bibliotecas listadas no arquivo requirements.txt.
+
+Passo 8: Rodar o Servidor e Desenvolver o Blog
+Agora que tudo está configurado, inicie o servidor e continue o desenvolvimento da aplicação de blog.
+
+No terminal, dentro da pasta do projeto, execute:
+python manage.py runserver
+
+Acesse a aplicação no navegador em http://127.0.0.1:8000/.
+
+Você pode seguir adiante criando modelos de dados (models), templates, e rotas para listar e visualizar postagens no blog.
