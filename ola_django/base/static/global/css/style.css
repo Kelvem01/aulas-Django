@@ -1,0 +1,70 @@
+/* Reset básico e box-sizing */
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    color: #0078e8;
+    text-decoration: none;
+}
+a:hover {
+    color: #0078e8;
+    text-decoration: underline;
+}
+
+/* Tamanhos base */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-size: 1.6rem; /* 16px */
+    background-color: #fff; /* Consistência no uso de propriedades */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 
+        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+        'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5; /* Melhora a legibilidade */
+    color: #333; /* Cor de texto padrão */
+}
+.menu {
+    background: #333;
+    padding: 1.5rem;
+}
+.menu__links a {
+    display: block;
+    color: #fff;
+    padding: 1.5rem;
+}
+.menu__links {
+    list-style: none;
+    display: flex;
+}
+/* Estilo do conteúdo */
+.content {
+    display: grid; /* Corrigido para grid, caso queria um layout de grid */
+    gap: 2rem; /* Mantido o valor em rem para responsividade */
+    padding: 1.5rem;
+}
+
+/* Estilo das postagens */
+.post {
+    background-color: #f1f1f1;
+    padding: 1.5rem; /* Adicionado "rem" para consistência */
+    border-radius: 8px; /* Adicionado borda arredondada */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    transition: transform 0.2s; /* Efeito ao passar o mouse */
+}
+
+.post:hover {
+    transform: translateY(-5px); /* Levanta o cartão ao passar o mouse */
+}
+
+/* Media query para layout responsivo */
+@media (min-width: 600px) {
+    .content:not(:has(.single_post)) {
+        grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+    }
+}
